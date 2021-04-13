@@ -22,6 +22,20 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
+    # empties selected cup
+    stones_in_hand = []
+    @cups[start_pos].each { |stone| stones_in_hand << stone }
+    @cups[start_pos] = []
+    # distributes the stones from that cup
+    until stones_in_hand.empty?
+      if current_player_name == @name1
+        (start_pos + 1..7).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos < 6
+        (start_pos + 1..12).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos > 6
+      else
+        (start_pos + 1..6).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos < 6
+        (start_pos + 1..13).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos > 6
+      end
+    end
   end
 
   def next_turn(ending_cup_idx)
