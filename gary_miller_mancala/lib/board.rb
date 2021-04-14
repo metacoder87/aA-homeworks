@@ -29,15 +29,22 @@ class Board
     stones_in_hand = []
     @cups[start_pos].each { |stone| stones_in_hand << stone }
     @cups[start_pos] = []
+    ending_cup_idx = start_pos + 1
     # distributes the stones from that cup
-    debugger
-    unless stones_in_hand.empty?
+    # debugger
+    until stones_in_hand.empty?
       if current_player_name == @name1
-        (start_pos + 1..7).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos < 6 
-        (start_pos + 1..12).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos > 6
+        if start_pos <= 6
+          (start_pos + 1..7).each do |cup| 
+            @cups[cup] << stones_in_hand.pop
+        elsif start_pos > 6 && start_pos < 12 
+          (start_pos + 1..12).each { |cup| @cups[cup] << stones_in_hand.pop } 
+        elsif start_pos == 12
+          (0..7).each { |cup| @cups[cup] << stones_in_hand.pop } 
       else
-        (start_pos + 1..6).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos < 6
-        (start_pos + 1..13).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos > 6
+        (start_pos + 1..6).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos <= 6
+        (start_pos + 1..13).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos > 6 && start_pos < 13
+        (0..6).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos == 13
       end
       @cups.map! { |cup| cup.compact }
     end
