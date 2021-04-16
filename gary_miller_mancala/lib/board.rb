@@ -29,29 +29,58 @@ class Board
     stones_in_hand = []
     @cups[start_pos].each { |stone| stones_in_hand << stone }
     @cups[start_pos] = []
-    ending_cup_idx = start_pos + 1
+    ending_cup_idx = start_pos
+    
     # distributes the stones from that cup
     # debugger
     until stones_in_hand.empty?
+      stone = stones_in_hand.pop
+      ending_cup_idx += 1
       if current_player_name == @name1
-        if start_pos <= 6
-          (start_pos + 1..7).each do |cup| 
-            @cups[cup] << stones_in_hand.pop
-        elsif start_pos > 6 && start_pos < 12 
-          (start_pos + 1..12).each { |cup| @cups[cup] << stones_in_hand.pop } 
-        elsif start_pos == 12
-          (0..7).each { |cup| @cups[cup] << stones_in_hand.pop } 
+        if ending_cup_idx != 13
+          @cups[ending_cup_idx] << stone
+        elsif ending_cup_idx == 13 && stones_in_hand.first
+          ending_cup_idx = 0
+          @cups[ending_cup_idx] << stone
+        end
       else
-        (start_pos + 1..6).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos <= 6
-        (start_pos + 1..13).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos > 6 && start_pos < 13
-        (0..6).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos == 13
+        if ending_cup_idx != 6 
+          @cups[ending_cup_idx] << stone
+        elsif ending_cup_idx == 6
+          ending_cup_idx += 1
+          @cups[ending_cup_idx] << stone
+        end
       end
-      @cups.map! { |cup| cup.compact }
     end
+      next_turn(ending_cup_idx)
+
+    # until stones_in_hand.empty?
+    #   if current_player_name == @name1
+    #     if start_pos <= 6
+    #       (start_pos + 1..7).each do |cup| 
+    #         @cups[cup] << stones_in_hand.pop
+    #     elsif start_pos > 6 && start_pos < 12 
+    #       (start_pos + 1..12).each { |cup| @cups[cup] << stones_in_hand.pop } 
+    #     elsif start_pos == 12
+    #       (0..7).each { |cup| @cups[cup] << stones_in_hand.pop } 
+    #   else
+    #     (start_pos + 1..6).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos <= 6
+    #     (start_pos + 1..13).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos > 6 && start_pos < 13
+    #     (0..6).each { |cup| @cups[cup] << stones_in_hand.pop } if start_pos == 13
+    #   end
+    #   @cups.map! { |cup| cup.compact }
+    # end
   end
 
   def next_turn(ending_cup_idx)
     # helper method to determine whether #make_move returns :switch, :prompt, or ending_cup_idx
+    if @cups[ending_cup_idx].count > 1 && ending_cup_idx != 6 && ending_cup_idx != 13
+        return :next_turn
+    elsif ending_cup_idx == 6 || ending_cup_idx == 13
+        return :prompt
+    elsif @cups[ending_cup_idx].count == 1 
+        return :switch
+    end
   end
 
   def render
