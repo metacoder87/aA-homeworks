@@ -84,5 +84,11 @@ class Board
   end
 
   def winner
+    if @cups[6] > @cups[13]
+      return "#{@name1} wins @ MANCALA!" 
+    elsif @cups[6] == @cups[13]
+      return :draw 
+    else return "#{@name2} wins @ MANCALA!"
+    end
   end
 end
