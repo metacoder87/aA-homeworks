@@ -78,6 +78,9 @@ class Board
   end
 
   def one_side_empty?
+    side_one = (0..5)
+    side_two = (7..12)
+    side_one.all? { |cup| @cups[cup].empty? } || side_two.all? { |cup| @cups[cup].empty? }
   end
 
   def winner
