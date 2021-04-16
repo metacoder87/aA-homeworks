@@ -32,7 +32,6 @@ class Board
     ending_cup_idx = start_pos
     
     # distributes the stones from that cup
-    # debugger
     until stones_in_hand.empty?
       stone = stones_in_hand.pop
       ending_cup_idx += 1
@@ -44,25 +43,29 @@ class Board
           @cups[ending_cup_idx] << stone
         end
       else
-        if ending_cup_idx != 6 
+        if ending_cup_idx > 13
+          ending_cup_idx = 0 
           @cups[ending_cup_idx] << stone
-        elsif ending_cup_idx == 6
+        elsif ending_cup_idx != 6 && ending_cup_idx != 13
+          @cups[ending_cup_idx] << stone
+        elsif ending_cup_idx == 6 && stones_in_hand.first
           ending_cup_idx += 1
           @cups[ending_cup_idx] << stone
         end
       end
     end
+      self.render
       next_turn(ending_cup_idx)
   end
 
   def next_turn(ending_cup_idx)
     # helper method to determine whether #make_move returns :switch, :prompt, or ending_cup_idx
     if @cups[ending_cup_idx].count > 1 && ending_cup_idx != 6 && ending_cup_idx != 13
-        return :render && ending_cup_idx
+        return ending_cup_idx
     elsif ending_cup_idx == 6 || ending_cup_idx == 13
-        return :render && :prompt 
+        return :prompt
     elsif @cups[ending_cup_idx].count == 1 
-        return :render && :switch
+        return :switch
     end
   end
 
