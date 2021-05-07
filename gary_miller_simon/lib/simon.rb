@@ -62,7 +62,7 @@ class Simon
   end
 
   def add_random_color
-    @seq << ["red", "blue", "yellow", "green"].shuffle.first
+    @seq << COLORS.shuffle.first
   end
 
   def round_success_message
