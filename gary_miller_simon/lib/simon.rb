@@ -14,7 +14,7 @@ class Simon
   end
 
   def take_turn
-
+    
   end
 
   def show_sequence
@@ -26,7 +26,7 @@ class Simon
   end
 
   def add_random_color
-
+    @seq << ["red", "blue", "yellow", "green"].shuffle.first
   end
 
   def round_success_message
