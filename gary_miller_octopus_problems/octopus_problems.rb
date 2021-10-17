@@ -13,6 +13,11 @@ class Octopus
             return craniata if @school.all? { |cran| cran.length <= craniata.length }
         end
     end
+
+    def dominant_octopus # O(n*log(n))
+        merge_sort(@school).last
+    end
+
       # Merge Sort: O(n*lg(n))
     def merge_sort (array, &prc)
         return array if array.length <= 1
