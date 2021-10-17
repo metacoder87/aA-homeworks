@@ -2,7 +2,7 @@
 
 class Octopus
 
-    attr_reader :fish
+    attr_reader :school
 
     def initialize
         @school = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
