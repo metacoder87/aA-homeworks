@@ -18,6 +18,12 @@ class Octopus
         merge_sort(@school).last
     end
 
+    def clever_octopus # O(n)
+        biggest_fish = ""
+        @school.each { |craniata| craniata.length > biggest_fish.length ? biggest_fish = craniata : next }
+        return biggest_fish
+    end
+
       # Merge Sort: O(n*lg(n))
     def merge_sort (array, &prc)
         return array if array.length <= 1
