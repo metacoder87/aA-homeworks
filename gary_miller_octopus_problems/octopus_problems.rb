@@ -55,3 +55,8 @@ class Octopus
     end
 
 end
+
+oct = Octopus.new
+puts oct.sluggish_octopus
+puts oct.dominant_octopus
+puts oct.clever_octopus
