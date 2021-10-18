@@ -2,7 +2,7 @@
 
 class Octopus
 
-    attr_reader :school, :tiles_array
+attr_reader :school, :tiles_array, :new_tiles_data_structure
 
     def initialize
         @school = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
