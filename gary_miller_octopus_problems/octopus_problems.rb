@@ -35,6 +35,10 @@ attr_reader :school, :tiles_array, :new_tiles_data_structure
         end
     end
 
+    def fast_dance(move, tiles) # O(1)
+        return tiles[move]
+    end
+
     private
 
     def new_data_filler
