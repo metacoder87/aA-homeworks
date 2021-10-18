@@ -7,6 +7,8 @@ class Octopus
     def initialize
         @school = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
         @tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
+        @new_tiles_data_structure = {}
+        new_data_filler
     end
 
     def sluggish_octopus # O(n^2)
@@ -34,6 +36,10 @@ class Octopus
     end
 
     private
+
+    def new_data_filler
+        @tiles_array.each_with_index { |tile, idx| @new_tiles_data_structure[tile] = idx }
+    end
 
       # Merge Sort: O(n*lg(n))
     def merge_sort (array, &prc)
@@ -71,3 +77,5 @@ oct = Octopus.new
 puts oct.sluggish_octopus
 puts oct.dominant_octopus
 puts oct.clever_octopus
+puts oct.slow_dance("up", oct.tiles_array) # => 0
+puts oct.slow_dance("right-down", oct.tiles_array) # => 3
