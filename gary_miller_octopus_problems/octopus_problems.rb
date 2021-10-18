@@ -24,6 +24,16 @@ class Octopus
         return biggest_fish
     end
 
+    # DANCING OCTOPUS
+
+    def slow_dance(move, tiles) # O(n)
+        tiles.each_with_index do |tile, idx| 
+            return idx if tile == move
+        end
+    end
+
+    private
+
       # Merge Sort: O(n*lg(n))
     def merge_sort (array, &prc)
         return array if array.length <= 1
