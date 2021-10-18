@@ -2,10 +2,11 @@
 
 class Octopus
 
-    attr_reader :school
+    attr_reader :school, :tiles_array
 
     def initialize
         @school = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
+        @tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
     end
 
     def sluggish_octopus # O(n^2)
