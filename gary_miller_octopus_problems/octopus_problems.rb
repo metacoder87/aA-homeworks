@@ -83,3 +83,5 @@ puts oct.dominant_octopus
 puts oct.clever_octopus
 puts oct.slow_dance("up", oct.tiles_array) # => 0
 puts oct.slow_dance("right-down", oct.tiles_array) # => 3
+puts oct.fast_dance("up", oct.new_tiles_data_structure) # => 0
+puts oct.fast_dance("right-down", oct.new_tiles_data_structure) # => 3
