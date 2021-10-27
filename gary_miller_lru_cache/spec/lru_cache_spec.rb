@@ -11,3 +11,9 @@ describe LRUCache do
         expect(johnny_cache.class).to eq(LRUCache)
       end
   end
+
+  describe 'count' do
+      it 'returns the number of elements in the cache' do
+          expect(johnny_cache.count).to eq(0)
+      end
+  end
