@@ -28,4 +28,9 @@ class LRUCache
     def cancel_double?(el)
         @store.delete(el) if @store.include?(el)
     end
+
+    def limit_reached?
+        @store.shift if count == @cache_limit
+    end
+
 end
