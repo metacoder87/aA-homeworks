@@ -35,3 +35,16 @@ describe LRUCache do
           expect(johnny_cache.count).to eq(3)
       end
   end
+
+  describe 'limit_reached?' do
+      it 'will not add more than four elements without deleting the first' do
+        johnny_cache.add(-5)
+        johnny_cache.add({a: 1, b: 2, c: 3})
+        johnny_cache.add([1,2,3,4])
+        johnny_cache.add("I walk the line")
+        johnny_cache.add(:ring_of_fire)
+        johnny_cache.add("I walk the line")
+        johnny_cache.add({a: 1, b: 2, c: 3})
+            expect(johnny_cache.count).to eq(4)
+      end
+  end
