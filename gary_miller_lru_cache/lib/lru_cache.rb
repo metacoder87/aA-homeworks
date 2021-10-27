@@ -25,4 +25,7 @@ class LRUCache
     private
     # helper methods go here!
 
+    def cancel_double?(el)
+        @store.delete(el) if @store.include?(el)
+    end
 end
