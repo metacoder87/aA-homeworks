@@ -12,6 +12,9 @@ class LRUCache
 
     def add(el)
       # adds element to cache according to LRU principle
+        cancel_double?(el)
+        limit_reached?
+        @store << el
     end
 
     def show
