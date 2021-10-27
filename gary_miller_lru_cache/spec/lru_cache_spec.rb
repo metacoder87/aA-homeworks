@@ -26,3 +26,12 @@ describe LRUCache do
       end
   end
 
+  describe 'cancel_double?' do
+      it 'removes element before adding a new one' do
+        johnny_cache.add("I walk the line")
+        johnny_cache.add(5)
+        johnny_cache.add([1,2,3])
+        johnny_cache.add(5)
+          expect(johnny_cache.count).to eq(3)
+      end
+  end
