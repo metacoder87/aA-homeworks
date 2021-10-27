@@ -1,6 +1,8 @@
 class LRUCache
 
     def initialize(n)
+        @store = []
+        @cache_limit = n
     end
 
     def count
