@@ -109,5 +109,10 @@ class ResizingIntSet
   end
 
   def resize!
+    vals = []
+    @store.each { |pail| pail.each { |val| vals << val } unless pail.empty? }
+    @store = Array.new(num_buckets * 2) { Array.new }
+    vals.each { |num| insert(num) }
+    @count -= vals.count
   end
 end
