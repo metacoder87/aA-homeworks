@@ -49,7 +49,7 @@ class IntSet
   end
 
   def include?(num)
-    @store.any? { |n| n == num }
+    @store.any? { |n| n.include? num }
   end
 
   private
