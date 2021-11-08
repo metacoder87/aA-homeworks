@@ -41,12 +41,14 @@ class IntSet
   end
 
   def insert(num)
+    @store << num
   end
 
   def remove(num)
   end
 
   def include?(num)
+    @store.any? { |n| n == num }
   end
 
   private
