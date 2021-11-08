@@ -34,6 +34,9 @@ class MaxIntSet
   end
 
   def validate!(num)
+    num.to_i if num.class != Integer
+    num = @max if num > @max
+    num = 0 if num < 0 
   end
 end
 
