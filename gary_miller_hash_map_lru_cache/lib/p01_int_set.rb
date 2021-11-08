@@ -22,6 +22,7 @@ class MaxIntSet
   end
 
   def include?(num)
+    @nums.one? { |n| n == num }
   end
 
   private
