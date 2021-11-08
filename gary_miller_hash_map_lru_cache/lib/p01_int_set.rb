@@ -79,6 +79,12 @@ class ResizingIntSet
   end
 
   def insert(num)
+    resize! if @count == num_buckets
+      
+    unless include?(num)
+      bucket(num) << num 
+      @count += 1
+    end
   end
 
   def remove(num)
