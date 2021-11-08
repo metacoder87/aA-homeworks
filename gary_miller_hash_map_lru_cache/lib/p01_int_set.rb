@@ -41,7 +41,8 @@ class IntSet
   end
 
   def insert(num)
-    @store << num
+    bucket = (19 % num)
+    @store[bucket] << num
   end
 
   def remove(num)
