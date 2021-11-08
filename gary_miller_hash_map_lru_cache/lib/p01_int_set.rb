@@ -88,6 +88,8 @@ class ResizingIntSet
   end
 
   def remove(num)
+    @count -= 1 if include?(num)
+    bucket(num).delete(num)
   end
 
   def include?(num)
