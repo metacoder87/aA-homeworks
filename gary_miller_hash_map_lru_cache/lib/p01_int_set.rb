@@ -46,6 +46,8 @@ class IntSet
   end
 
   def remove(num)
+    bucket = 19 % num
+    @store[bucket].delete(num)
   end
 
   def include?(num)
