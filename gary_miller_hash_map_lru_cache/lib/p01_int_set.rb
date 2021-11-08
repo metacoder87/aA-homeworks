@@ -62,8 +62,9 @@ class IntSet
 
   private
 
-  def [](num)
+  def bucket(num)
     # optional but useful; return the bucket corresponding to `num`
+    @store[19 % num]
   end
 
   def num_buckets
