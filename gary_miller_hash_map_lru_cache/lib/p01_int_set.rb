@@ -17,6 +17,8 @@ class MaxIntSet
   end
 
   def remove(num)
+    @nums.delete(num)
+    @store[num] = false
   end
 
   def include?(num)
