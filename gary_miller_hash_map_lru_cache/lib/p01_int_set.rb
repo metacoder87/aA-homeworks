@@ -98,8 +98,10 @@ class ResizingIntSet
 
   private
 
-  def [](num)
+  def bucket(num)
+    return @store[0] if num == 0
     # optional but useful; return the bucket corresponding to `num`
+    @store[(num_buckets - 1) % num]
   end
 
   def num_buckets
