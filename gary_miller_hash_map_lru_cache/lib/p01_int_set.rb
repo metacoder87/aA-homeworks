@@ -1,5 +1,11 @@
 class MaxIntSet
+
+  attr_reader :store
+
   def initialize(max)
+    @store = Array.new(max) { false }
+    @nums = []
+    @max = max
   end
 
   def insert(num)
