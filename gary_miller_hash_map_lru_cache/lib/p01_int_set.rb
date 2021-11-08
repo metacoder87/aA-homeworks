@@ -93,6 +93,7 @@ class ResizingIntSet
   end
 
   def include?(num)
+    bucket(num).one? { |n| n == num }
   end
 
   private
