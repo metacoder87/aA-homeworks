@@ -19,8 +19,11 @@ class Array
 end
 
 class String
+
   def hash
+    self.split('').hash
   end
+
 end
 
 class Hash
