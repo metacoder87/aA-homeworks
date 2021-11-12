@@ -78,6 +78,12 @@ class LinkedList
   end
 
   def each
+    node = @head.next
+    
+    until node == @tail 
+      yield node
+      node = node.next
+    end
   end
 
   # uncomment when you have `each` working and `Enumerable` included
