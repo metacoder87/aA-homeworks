@@ -7,6 +7,12 @@ class HashSet
   end
 
   def insert(key)
+    resize! if @count == num_buckets
+    
+    unless include?(key)
+      bucket(key) << key 
+      @count += 1
+    end
   end
 
   def include?(key)
