@@ -20,6 +20,8 @@ class HashSet
   end
 
   def remove(key)
+    @count -= 1 if include?(key)
+    bucket(key).delete(key)
   end
 
   private
