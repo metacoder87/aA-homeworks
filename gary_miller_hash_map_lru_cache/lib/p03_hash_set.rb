@@ -16,6 +16,7 @@ class HashSet
   end
 
   def include?(key)
+    bucket(key).one? { |n| n == key }
   end
 
   def remove(key)
