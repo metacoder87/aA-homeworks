@@ -3,8 +3,19 @@ class Integer
 end
 
 class Array
+
   def hash
+    alph = ("a".."z").to_a
+    shing = self.map.with_index do |el, i|
+      if el.class == Integer
+        el ^ i
+      elsif el.class == String
+        alph.index(el)
+      end
+    end
+    ha = shing.join('').to_i.hash
   end
+
 end
 
 class String
