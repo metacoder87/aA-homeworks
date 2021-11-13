@@ -60,6 +60,11 @@ class HashMap
   end
 
   def resize!
+    vals = []
+    @store.each { |pail| pail.each { |node| vals << [node.key, node.val] } unless pail.empty? }
+      @store = Array.new(num_buckets * 2) { LinkedList.new }
+      vals.each { |pair| set(pair.first, pair.last) }
+     @count -= vals.count
   end
 
   def bucket(key)
