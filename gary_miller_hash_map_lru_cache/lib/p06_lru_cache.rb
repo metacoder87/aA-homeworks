@@ -16,6 +16,7 @@ class LRUCache
   end
 
   def get(key)
+    @map[key] ? update_node!(@map[key]) : calc!(key)
   end
 
   def to_s
