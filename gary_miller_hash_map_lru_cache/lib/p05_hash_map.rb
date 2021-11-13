@@ -30,6 +30,10 @@ class HashMap
   end
 
   def delete(key)
+    if bucket(key).include?(key)
+      bucket(key).remove(key)
+      @count -= 1
+    end
   end
 
   def each
