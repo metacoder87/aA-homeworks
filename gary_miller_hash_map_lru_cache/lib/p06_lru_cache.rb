@@ -25,6 +25,8 @@ class LRUCache
 
   private
 
+  attr_reader :store, :map
+
   def calc!(key)
     # suggested helper method; insert an (un-cached) key
   end
