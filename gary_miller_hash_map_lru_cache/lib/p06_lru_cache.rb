@@ -44,5 +44,9 @@ class LRUCache
   end
 
   def eject!
+    lru_node = @store.first
+    lru_node.remove
+    @map.delete(lru_node.key)
+    nil
   end
 end
