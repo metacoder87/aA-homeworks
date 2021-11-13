@@ -1,6 +1,8 @@
 require_relative 'p04_linked_list'
 
 class HashMap
+  include Enumerable
+
   attr_accessor :count
 
   def initialize(num_buckets = 8)
