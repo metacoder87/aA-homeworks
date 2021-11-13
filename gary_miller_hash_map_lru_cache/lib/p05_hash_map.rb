@@ -37,6 +37,9 @@ class HashMap
   end
 
   def each
+    @store.map do |bucket|
+      bucket.each { |node| yield [node.key, node.val] }
+    end
   end
 
   # uncomment when you have Enumerable included
