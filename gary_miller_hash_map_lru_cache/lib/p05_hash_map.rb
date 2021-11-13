@@ -48,5 +48,6 @@ class HashMap
 
   def bucket(key)
     # optional but useful; return the bucket corresponding to `key`
+    @store[key.hash % num_buckets]
   end
 end
