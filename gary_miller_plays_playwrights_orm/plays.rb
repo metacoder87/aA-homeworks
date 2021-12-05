@@ -48,4 +48,19 @@ class Play
         id = ?
     SQL
   end
+
+  def find_by_title(title)
+  end
+
+  def find_by_playwright(name)
+  end
+
 end
+
+# Playwright::all
+# Playwright::find_by_name(name)
+# Playwright#new (this is the initialize method)
+# Playwright#create
+# Playwright#update
+# Playwright#get_plays (returns all plays written by playwright)
+
