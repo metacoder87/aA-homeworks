@@ -2,7 +2,7 @@ class User < ApplicationRecord
     has_many(
         :enrollments,
         class_name: 'Enrollment',
-        foreign_key: :user_id,
+        foreign_key: :student_id,
         primary_key: :id
     )
 
