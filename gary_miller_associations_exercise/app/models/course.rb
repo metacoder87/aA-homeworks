@@ -16,9 +16,9 @@ class Course < ApplicationRecord
         optional: true
     )
 
-    belongs_to(å
+    belongs_to(
         :instructor,
-        class_name: 'Course',
+        class_name: 'User',
         foreign_key: :instructor_id,
         primary_key: :id
     )
