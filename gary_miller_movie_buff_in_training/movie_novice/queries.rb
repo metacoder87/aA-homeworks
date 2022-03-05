@@ -23,7 +23,8 @@
 
 def find_angelina
   #find Angelina Jolie by name in the actors table
-
+  angy = Actor.where( 'name = ?', 'Angelina Jolie' )
+  return angy[0]
 end
 
 def top_titles
