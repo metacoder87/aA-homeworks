@@ -23,14 +23,17 @@
 
 def find_angelina
   #find Angelina Jolie by name in the actors table
-  angy = Actor.where( 'name = ?', 'Angelina Jolie' )
-  return angy[0]
+
 end
 
 def top_titles
   # get movie titles from movies with scores greater than or equal to 9
   # hint: use 'select' and 'where'
-
+  movies = Movie
+    .find_by_sql([
+      'SELECT title, id FROM movies WHERE score >= 9'
+    ])
+  return movies
 end
 
 def star_wars
