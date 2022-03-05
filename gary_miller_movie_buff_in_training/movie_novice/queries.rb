@@ -29,17 +29,15 @@ end
 def top_titles
   # get movie titles from movies with scores greater than or equal to 9
   # hint: use 'select' and 'where'
-  movies = Movie
-    .find_by_sql([
-      'SELECT title, id FROM movies WHERE score >= 9'
-    ])
-  return movies
+
 end
 
 def star_wars
   #display the id, title and year of each Star Wars movie in movies.
   # hint: use 'select' and 'where'
-
+  movies = Movie
+                .select('id, title, yr')
+  return movies.select { |movie| movie.title.include?("Star Wars") }
 end
 
 
