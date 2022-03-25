@@ -22,12 +22,12 @@ class House < ApplicationRecord
     # TODO: your code here
     plants = self.plants.includes(:seeds)
 
-    house_seed_counts = {}
+    house_seeds = []
     
     plants.each do |plant|
-      house_seed_counts[plant] = plant.seeds.length
+      house_seeds << [plant, plant.seeds]
     end
 
-    house_seed_counts
+    house_seeds
   end
 end
